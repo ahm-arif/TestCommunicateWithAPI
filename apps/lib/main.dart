@@ -1,5 +1,6 @@
 import 'package:apps/constants/versioning.dart';
-import 'package:apps/pages/home/home_page.dart';
+
+import 'package:apps/pages/main_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: appName,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: MainPage(),
     );
   }
 }
