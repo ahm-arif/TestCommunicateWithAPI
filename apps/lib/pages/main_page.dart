@@ -16,10 +16,10 @@ class _MainPageState extends State<MainPage> {
   String avatarUrl =
       "https://www.inpixio.com/remove-background/images/animation-light-square.gif";
 
-  int _currentPage = 0;
+  int _currentPage = 1;
 
   PageController _pageController = PageController(
-    initialPage: 0,
+    initialPage: 1,
     keepPage: true,
   );
 
