@@ -1,15 +1,15 @@
 package com.wellnes.testcommunicate.controllers;
 
 import com.wellnes.testcommunicate.models.entities.Doctor;
+import com.wellnes.testcommunicate.models.inbounds.DoctorInbound;
+import com.wellnes.testcommunicate.models.outbounds.BaseResponse;
+import com.wellnes.testcommunicate.models.outbounds.DataResponse;
 import com.wellnes.testcommunicate.models.outbounds.PageDataResponse;
 import com.wellnes.testcommunicate.models.outbounds.Paging;
 import com.wellnes.testcommunicate.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/doctors")
@@ -42,4 +42,36 @@ public class DoctorController {
             .build();
   }
 
+  @PostMapping
+  public DataResponse<Doctor> createDoctor(
+          @RequestBody
+          DoctorInbound doctorInbound
+  ) {
+    return DataResponse.<Doctor>dataBuilder()
+            .data(doctorService.createDoctor(doctorInbound))
+            .status("Success")
+            .code(200)
+            .build();
+  }
+
+  @DeleteMapping(value = "/{doctorId}")
+  public BaseResponse deleteDoctor(@PathVariable int doctorId) {
+    doctorService.deleteDoctor(doctorId);
+    return BaseResponse.builder()
+            .code(200)
+            .status("Success")
+            .build();
+  }
+
+  @PutMapping(value = "/{doctorId}")
+  public DataResponse<Doctor> updateDoctor(
+          @PathVariable int doctorId,
+          @RequestBody DoctorInbound doctorInbound
+  ) {
+    return DataResponse.<Doctor>dataBuilder()
+            .code(200)
+            .status("Success")
+            .data(doctorService.updateDoctor(doctorId, doctorInbound))
+            .build();
+  }
 }
