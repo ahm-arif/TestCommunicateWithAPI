@@ -1,3 +1,10 @@
+DROP TABLE IF EXISTS doctor_doctor_category;
+DROP TABLE IF EXISTS appointment;
+DROP TABLE IF EXISTS appointment_type;
+DROP TABLE IF EXISTS doctor;
+DROP TABLE IF EXISTS doctor_category;
+DROP TABLE IF EXISTS symptom;
+
 CREATE TABLE doctor
 (
     doctor_id SERIAL PRIMARY KEY NOT NULL,
