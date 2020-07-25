@@ -6,7 +6,7 @@ import com.wellnes.testcommunicate.models.outbounds.wrapper.BaseResponse;
 import com.wellnes.testcommunicate.models.outbounds.wrapper.DataResponse;
 import com.wellnes.testcommunicate.models.outbounds.wrapper.PageDataResponse;
 import com.wellnes.testcommunicate.models.outbounds.wrapper.Paging;
-import com.wellnes.testcommunicate.services.AppointmentService;
+import com.wellnes.testcommunicate.services.api.AppointmentService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 

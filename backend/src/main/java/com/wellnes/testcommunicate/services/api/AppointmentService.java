@@ -1,4 +1,4 @@
-package com.wellnes.testcommunicate.services;
+package com.wellnes.testcommunicate.services.api;
 
 import com.wellnes.testcommunicate.models.entities.Appointment;
 import com.wellnes.testcommunicate.models.inbounds.AppointmentInbound;
