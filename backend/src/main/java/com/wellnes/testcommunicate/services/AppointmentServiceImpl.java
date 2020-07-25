@@ -1,7 +1,7 @@
 package com.wellnes.testcommunicate.services;
 
 import com.wellnes.testcommunicate.models.entities.Appointment;
-import com.wellnes.testcommunicate.models.inbounds.ComplaintInbound;
+import com.wellnes.testcommunicate.models.inbounds.AppointmentInbound;
 import com.wellnes.testcommunicate.repositories.AppointmentRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ComplaintServiceImpl implements ComplaintService {
+public class AppointmentServiceImpl implements AppointmentService {
 
   private final AppointmentRepository appointmentRepository;
 
-  public ComplaintServiceImpl(AppointmentRepository appointmentRepository) {
+  public AppointmentServiceImpl(AppointmentRepository appointmentRepository) {
     this.appointmentRepository = appointmentRepository;
   }
 
@@ -34,22 +34,17 @@ public class ComplaintServiceImpl implements ComplaintService {
   }
 
   @Override
-  public Appointment create(ComplaintInbound complaint) {
+  public Appointment create(AppointmentInbound complaint) {
     return appointmentRepository.save(Appointment.builder()
-            .description(complaint.getDescription())
-            .name(complaint.getName())
             .build());
   }
 
   @Override
-  public Appointment update(int id, ComplaintInbound complaint) {
+  public Appointment update(int id, AppointmentInbound complaint) {
     Appointment existingAppointment = Optional.of(id)
             .map(appointmentRepository::findById)
             .map(c -> c.orElse(Appointment.builder().build()))
             .orElse(Appointment.builder().build());
-
-    existingAppointment.setName(complaint.getName());
-    existingAppointment.setDescription(complaint.getDescription());
 
     return appointmentRepository.save(existingAppointment);
   }

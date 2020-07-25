@@ -1,4 +1,4 @@
-CREATE TABLE complaint
+CREATE TABLE appointment
 (
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(100),

@@ -2,10 +2,10 @@ package com.wellnes.testcommunicate.controllers;
 
 import com.wellnes.testcommunicate.models.entities.Doctor;
 import com.wellnes.testcommunicate.models.inbounds.DoctorInbound;
-import com.wellnes.testcommunicate.models.outbounds.BaseResponse;
-import com.wellnes.testcommunicate.models.outbounds.DataResponse;
-import com.wellnes.testcommunicate.models.outbounds.PageDataResponse;
-import com.wellnes.testcommunicate.models.outbounds.Paging;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.BaseResponse;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.DataResponse;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.PageDataResponse;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.Paging;
 import com.wellnes.testcommunicate.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

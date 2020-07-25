@@ -1,10 +1,10 @@
-INSERT INTO complaint (description, name)
-VALUES  ('desc complaint 1', 'complaint 1'),
-        ('desc complaint 2', 'complaint 2'),
-        ('desc complaint 3', 'complaint 3'),
-        ('desc complaint 4', 'complaint 4'),
-        ('desc complaint 5', 'complaint 5'),
-        ('desc complaint 6', 'complaint 6');
+INSERT INTO appointment (description, name)
+VALUES  ('desc appointment 1', 'appointment 1'),
+        ('desc appointment 2', 'appointment 2'),
+        ('desc appointment 3', 'appointment 3'),
+        ('desc appointment 4', 'appointment 4'),
+        ('desc appointment 5', 'appointment 5'),
+        ('desc appointment 6', 'appointment 6');
 
 INSERT INTO doctor (name, specialization)
 VALUES  ('doctor 1', 'specialization 1'),

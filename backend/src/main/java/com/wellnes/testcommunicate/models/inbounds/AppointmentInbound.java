@@ -1,4 +1,4 @@
-package com.wellnes.testcommunicate.models.outbounds.wrapper;
+package com.wellnes.testcommunicate.models.inbounds;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BaseResponse {
+public class AppointmentInbound {
 
-  int code;
-  private String status;
+  private String name;
+
+  private String description;
 
 }

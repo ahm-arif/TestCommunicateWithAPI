@@ -28,7 +28,7 @@ public class DoctorServiceImpl implements DoctorService {
   public Doctor createDoctor(DoctorInbound doctorInbound) {
     Doctor doctor = Doctor.builder()
             .name(doctorInbound.getName())
-            .specialization(doctorInbound.getSpecialization())
+            .title(doctorInbound.getSpecialization())
             .build();
 
     return doctorRepository.save(doctor);
@@ -47,9 +47,9 @@ public class DoctorServiceImpl implements DoctorService {
     String name = Optional.of(doctorInbound.getName())
             .orElse(doctor.getName());
     String specialization = Optional.ofNullable(doctorInbound.getSpecialization())
-            .orElse(doctor.getSpecialization());
+            .orElse(doctor.getTitle());
     doctor.setName(name);
-    doctor.setSpecialization(specialization);
+    doctor.setTitle(specialization);
     return doctorRepository.save(doctor);
   }
 }

@@ -1,12 +1,12 @@
 package com.wellnes.testcommunicate.controllers;
 
 import com.wellnes.testcommunicate.models.entities.Appointment;
-import com.wellnes.testcommunicate.models.inbounds.ComplaintInbound;
-import com.wellnes.testcommunicate.models.outbounds.BaseResponse;
-import com.wellnes.testcommunicate.models.outbounds.DataResponse;
-import com.wellnes.testcommunicate.models.outbounds.PageDataResponse;
-import com.wellnes.testcommunicate.models.outbounds.Paging;
-import com.wellnes.testcommunicate.services.ComplaintService;
+import com.wellnes.testcommunicate.models.inbounds.AppointmentInbound;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.BaseResponse;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.DataResponse;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.PageDataResponse;
+import com.wellnes.testcommunicate.models.outbounds.wrapper.Paging;
+import com.wellnes.testcommunicate.services.AppointmentService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/complaints")
-public class ComplaintController {
+public class AppointmentController {
 
-  private final ComplaintService complaintService;
+  private final AppointmentService appointmentService;
 
-  public ComplaintController(ComplaintService complaintService) {
-    this.complaintService = complaintService;
+  public AppointmentController(AppointmentService appointmentService) {
+    this.appointmentService = appointmentService;
   }
 
   @GetMapping
@@ -31,7 +31,7 @@ public class ComplaintController {
                   defaultValue = "10")
                   int size
   ) {
-    Page<Appointment> complaints = complaintService.findAll(page, size);
+    Page<Appointment> complaints = appointmentService.findAll(page, size);
     Paging paging = Paging.builder()
             .page(complaints.getPageable().getPageNumber())
             .size(complaints.getSize())
@@ -48,9 +48,9 @@ public class ComplaintController {
 
   @PostMapping
   public DataResponse<Appointment> createComplaint(
-          @RequestBody ComplaintInbound complaintInbound
+          @RequestBody AppointmentInbound appointmentInbound
   ) {
-    Appointment appointment = complaintService.create(complaintInbound);
+    Appointment appointment = appointmentService.create(appointmentInbound);
     return DataResponse.<Appointment>dataBuilder()
             .code(200)
             .status("Success")
@@ -62,7 +62,7 @@ public class ComplaintController {
   public BaseResponse deleteComplaint(
           @PathVariable int complaintId
   ) {
-    complaintService.delete(complaintId);
+    appointmentService.delete(complaintId);
     return BaseResponse.builder()
             .code(200)
             .status("Success")
@@ -72,9 +72,9 @@ public class ComplaintController {
   @PutMapping(value = "/{complaintId}")
   public DataResponse<Appointment> updateComplaint(
           @PathVariable int complaintId,
-          @RequestBody ComplaintInbound complaintInbound
+          @RequestBody AppointmentInbound appointmentInbound
   ) {
-    Appointment appointment = complaintService.update(complaintId, complaintInbound);
+    Appointment appointment = appointmentService.update(complaintId, appointmentInbound);
     return DataResponse.<Appointment>dataBuilder()
             .code(200)
             .status("Success")

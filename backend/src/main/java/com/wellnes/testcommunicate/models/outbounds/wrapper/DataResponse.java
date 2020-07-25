@@ -1,4 +1,4 @@
-package com.wellnes.testcommunicate.models.outbounds;
+package com.wellnes.testcommunicate.models.outbounds.wrapper;
 
 import lombok.Builder;
 import lombok.Data;
