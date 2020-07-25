@@ -47,6 +47,7 @@ public class DoctorServiceImpl implements DoctorService {
             .DOB(doctorInbound.getDOB())
             .gender(doctorInbound.getGender())
             .phone(doctorInbound.getPhone())
+            .appuserId(doctorInbound.getAppuserId())
             .doctorCategories(
                     doctorInbound.getDoctorCategories()
                             .stream()
@@ -79,6 +80,8 @@ public class DoctorServiceImpl implements DoctorService {
             .orElse(doctor.getGender());
     String phone = Optional.ofNullable(doctorInbound.getPhone())
             .orElse(doctor.getPhone());
+    int appuserId = Optional.ofNullable(doctorInbound.getAppuserId())
+            .orElse(doctor.getAppuserId());
     List<DoctorCategory> categories = Optional.ofNullable(doctorInbound.getDoctorCategories())
             .map(c -> c.stream().map(doctorCategoryService::findOne).collect(Collectors.toList()))
             .orElse(doctor.getDoctorCategories());
@@ -90,6 +93,7 @@ public class DoctorServiceImpl implements DoctorService {
     doctor.setGender(gender);
     doctor.setPhone(phone);
     doctor.setDoctorCategories(categories);
+    doctor.setAppuserId(appuserId);
     return doctorRepository.save(doctor);
   }
 }

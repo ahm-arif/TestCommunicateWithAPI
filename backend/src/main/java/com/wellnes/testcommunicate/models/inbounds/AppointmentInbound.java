@@ -11,8 +11,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AppointmentInbound {
 
-  private String name;
+  private Integer doctorId;
 
-  private String description;
+  private Integer appointmentTypeId;
+
+  private Integer prescriptionId;
+
+  private Integer symptomId;
+
+  private Integer patientId;
 
 }

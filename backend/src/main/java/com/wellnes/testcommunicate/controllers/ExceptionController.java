@@ -20,7 +20,21 @@ public class ExceptionController {
 
     return BaseResponse.builder()
             .code(HttpStatus.NOT_FOUND.value())
-            .status(HttpStatus.NOT_FOUND.getReasonPhrase())
+            .status(e.getMessage())
+            .build();
+  }
+
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  @ExceptionHandler(Throwable.class)
+  public BaseResponse genericException(
+          Throwable e
+  ) {
+
+    log.error(e.getMessage(), e);
+
+    return BaseResponse.builder()
+            .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
+            .status(e.getMessage())
             .build();
   }
 }

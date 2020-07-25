@@ -1,5 +1,6 @@
 package com.wellnes.testcommunicate.models.outbounds;
 
+import com.wellnes.testcommunicate.models.entities.Appointment;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,5 +19,16 @@ public class AppointmentDetailOutbound {
   private AppointmentTypeOutbound appointmentType;
 
   private SymptomOutbound symptom;
+
+  public static AppointmentDetailOutbound of(Appointment appointment) {
+    return AppointmentDetailOutbound.builder()
+            .appointmentId(appointment.getAppointmentId())
+            .doctor(DoctorOutbound.of(appointment.getDoctor()))
+            .patientId(appointment.getPatientId())
+            .prescriptionId(appointment.getPrescriptionId())
+            .appointmentType(AppointmentTypeOutbound.of(appointment.getAppointmentType()))
+            .symptom(SymptomOutbound.of(appointment.getSymptom()))
+            .build();
+  }
 
 }

@@ -18,5 +18,6 @@ public class DoctorInbound {
   private String DOB;
   private String phone;
   private String address;
+  private Integer appuserId;
   private List<Integer> doctorCategories;
 }

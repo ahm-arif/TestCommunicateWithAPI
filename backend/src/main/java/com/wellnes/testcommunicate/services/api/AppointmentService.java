@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface AppointmentService {
 
   Page<Appointment> findAll(int page, int limit);
-  Optional<Appointment> findOne(int id);
+  Appointment findOne(int id);
   void delete(int id);
   Appointment create(AppointmentInbound complaint);
   Appointment update(int id, AppointmentInbound complaint);
