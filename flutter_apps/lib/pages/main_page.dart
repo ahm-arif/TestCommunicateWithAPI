@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/constants/colors.dart';
+import 'package:flutter_apps/pages/consult_page.dart';
 
 import 'account_page.dart';
-import 'consult_page.dart';
 import 'home_page.dart';
 import 'schedule_page.dart';
 
@@ -17,9 +17,9 @@ class _MainPageState extends State<MainPage> {
   String avatarUrl =
       "https://www.inpixio.com/remove-background/images/animation-light-square.gif";
 
-  int currentPage = 0;
+  int currentPage = 1;
   PageController pageController =
-      PageController(initialPage: 0, keepPage: true);
+      PageController(initialPage: 1, keepPage: true);
 
   @override
   Widget build(BuildContext context) {
